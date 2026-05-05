@@ -1,0 +1,6 @@
+district,state,water_level,climate
+gurgaon,haryana,low,semi-arid
+jaipur,rajasthan,very_low,arid
+kochi,kerala,high,humid
+mumbai,maharashtra,high,humid
+delhi,delhi,low,semi-arid
