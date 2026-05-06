@@ -1,6 +1,534 @@
 district,state,water_level,climate
-gurgaon,haryana,low,semi-arid
-jaipur,rajasthan,very_low,arid
-kochi,kerala,high,humid
-mumbai,maharashtra,high,humid
 delhi,delhi,low,semi-arid
+anantapur,andhra pradesh,low,arid
+chittoor,andhra pradesh,low,semi-arid
+guntur,andhra pradesh,medium,humid
+kurnool,andhra pradesh,low,arid
+visakhapatnam,andhra pradesh,high,humid
+guwahati,assam,high,humid
+dibrugarh,assam,high,humid
+jorhat,assam,high,humid
+silchar,assam,high,humid
+patna,bihar,high,sub-humid
+gaya,bihar,low,semi-arid
+muzaffarpur,bihar,medium,sub-humid
+bhagalpur,bihar,medium,sub-humid
+raipur,chhattisgarh,medium,tropical
+bilaspur,chhattisgarh,medium,tropical
+bastar,chhattisgarh,high,tropical
+panaji,goa,high,humid
+ahmedabad,gujarat,low,semi-arid
+kutch,gujarat,very_low,arid
+surat,gujarat,medium,humid
+rajkot,gujarat,low,arid
+gurgaon,haryana,low,semi-arid
+rohtak,haryana,low,semi-arid
+hisar,haryana,very_low,arid
+shimla,himachal pradesh,high,mountainous
+manali,himachal pradesh,high,mountainous
+ranchi,jharkhand,medium,tropical
+jamshedpur,jharkhand,medium,tropical
+bangalore,karnataka,low,semi-arid
+mysore,karnataka,medium,semi-arid
+mangalore,karnataka,high,humid
+kochi,kerala,high,humid
+thiruvananthapuram,kerala,high,humid
+kozhikode,kerala,high,humid
+bhopal,madhya pradesh,medium,dry-tropical
+indore,madhya pradesh,low,dry-tropical
+gwalior,madhya pradesh,low,arid
+mumbai,maharashtra,high,humid
+pune,maharashtra,medium,semi-arid
+nagpur,maharashtra,medium,tropical
+nashik,maharashtra,low,semi-arid
+bhubaneswar,odisha,high,tropical
+puri,odisha,high,tropical
+amritsar,punjab,medium,semi-arid
+ludhiana,punjab,low,semi-arid
+jaipur,rajasthan,very_low,arid
+jaisalmer,rajasthan,very_low,arid
+jodhpur,rajasthan,very_low,arid
+udaipur,rajasthan,low,semi-arid
+chennai,tamil nadu,low,humid
+coimbatore,tamil nadu,medium,semi-arid
+madurai,tamil nadu,low,semi-arid
+hyderabad,telangana,low,semi-arid
+warangal,telangana,low,semi-arid
+lucknow,uttar pradesh,medium,sub-humid
+kanpur,uttar pradesh,medium,sub-humid
+varanasi,uttar pradesh,high,sub-humid
+agra,uttar pradesh,low,semi-arid
+dehradun,uttarakhand,high,mountainous
+nainital,uttarakhand,high,mountainous
+kolkata,west bengal,high,humid
+darjeeling,west bengal,high,mountainous
+adilabad,telangana,low,semi-arid
+karimnagar,telangana,low,semi-arid
+khammam,telangana,medium,semi-arid
+mahbubnagar,telangana,very_low,arid
+nalgonda,telangana,low,arid
+nizamabad,telangana,medium,semi-arid
+agra,uttar pradesh,low,semi-arid
+aligarh,uttar pradesh,low,semi-arid
+allahabad,uttar pradesh,medium,sub-humid
+bareilly,uttar pradesh,medium,sub-humid
+ghaziabad,uttar pradesh,low,semi-arid
+jhansi,uttar pradesh,very_low,arid
+kanpur nagar,uttar pradesh,medium,sub-humid
+lucknow,uttar pradesh,medium,sub-humid
+meerut,uttar pradesh,medium,semi-arid
+moradabad,uttar pradesh,medium,sub-humid
+varanasi,uttar pradesh,high,sub-humid
+amritsar,punjab,medium,semi-arid
+bathinda,punjab,low,arid
+firozpur,punjab,low,semi-arid
+jalandhar,punjab,medium,semi-arid
+ludhiana,punjab,medium,semi-arid
+patiala,punjab,medium,semi-arid
+ajmer,rajasthan,low,arid
+alwar,rajasthan,low,semi-arid
+barmer,rajasthan,very_low,arid
+bharatpur,rajasthan,low,semi-arid
+bikaner,rajasthan,very_low,arid
+chittorgarh,rajasthan,low,semi-arid
+jaisalmer,rajasthan,very_low,arid
+jodhpur,rajasthan,very_low,arid
+kota,rajasthan,medium,semi-arid
+pali,rajasthan,low,arid
+sikar,rajasthan,low,arid
+udaipur,rajasthan,medium,semi-arid
+ahmednagar,maharashtra,low,semi-arid
+akola,maharashtra,low,semi-arid
+aurangabad,maharashtra,low,semi-arid
+kolhapur,maharashtra,high,humid
+nagpur,maharashtra,medium,tropical
+nanded,maharashtra,low,semi-arid
+nashik,maharashtra,medium,semi-arid
+pune,maharashtra,medium,semi-arid
+ratnagiri,maharashtra,high,humid
+solapur,maharashtra,very_low,arid
+thane,maharashtra,high,humid
+wardha,maharashtra,medium,tropical
+belgaum,karnataka,medium,semi-arid
+bellary,karnataka,very_low,arid
+bidar,karnataka,low,semi-arid
+bijapur,karnataka,very_low,arid
+dharwad,karnataka,medium,semi-arid
+gulbarga,karnataka,low,arid
+hassan,karnataka,medium,semi-arid
+kolar,karnataka,very_low,arid
+mandya,karnataka,medium,semi-arid
+mysore,karnataka,medium,semi-arid
+raichur,karnataka,low,arid
+shimoga,karnataka,high,humid
+tumkur,karnataka,low,semi-arid
+uodupi,karnataka,high,humid
+alappuzha,kerala,high,humid
+ernakulam,kerala,high,humid
+idukki,kerala,high,humid
+kannur,kerala,high,humid
+kasaragod,kerala,high,humid
+kollam,kerala,high,humid
+kottayam,kerala,high,humid
+malappuram,kerala,high,humid
+palakkad,kerala,medium,humid
+pathanamthitta,kerala,high,humid
+thrissur,kerala,high,humid
+wayanad,kerala,high,humid
+coimbatore,tamil nadu,medium,semi-arid
+dharmapuri,tamil nadu,low,semi-arid
+erode,tamil nadu,low,semi-arid
+kanchipuram,tamil nadu,medium,humid
+madurai,tamil nadu,low,semi-arid
+salem,tamil nadu,low,semi-arid
+thanjavur,tamil nadu,medium,humid
+tiruchirappalli,tamil nadu,medium,semi-arid
+tirunelveli,tamil nadu,low,semi-arid
+vellore,tamil nadu,low,semi-arid
+baksa,assam,high,humid
+barpeta,assam,high,humid
+cachar,assam,high,humid
+darrang,assam,high,humid
+dhemaji,assam,high,humid
+dhubri,assam,high,humid
+dibrugarh,assam,high,humid
+goalpara,assam,high,humid
+golaghat,assam,high,humid
+hailakandi,assam,high,humid
+jorhat,assam,high,humid
+kamrup,assam,high,humid
+karbi anglong,assam,high,humid
+karimganj,assam,high,humid
+kokrajhar,assam,high,humid
+lakhimpur,assam,high,humid
+morigaon,assam,high,humid
+nagaon,assam,high,humid
+nalbari,assam,high,humid
+sivasagar,assam,high,humid
+sonitpur,assam,high,humid
+tinsukia,assam,high,humid
+udalguri,assam,high,humid
+anantapur,andhra pradesh,very_low,arid
+chittoor,andhra pradesh,low,semi-arid
+east godavari,andhra pradesh,high,humid
+guntur,andhra pradesh,medium,semi-arid
+krishna,andhra pradesh,medium,humid
+kurnool,andhra pradesh,low,arid
+prakasam,andhra pradesh,low,arid
+srikakulam,andhra pradesh,high,humid
+visakhapatnam,andhra pradesh,high,humid
+vizianagaram,andhra pradesh,high,humid
+west godavari,andhra pradesh,high,humid
+anugul,odisha,medium,tropical
+balangir,odisha,low,tropical
+baleshwar,odisha,high,tropical
+bargarh,odisha,medium,tropical
+bhadrak,odisha,high,tropical
+cuttack,odisha,high,tropical
+deogarh,odisha,medium,tropical
+dhenkanal,odisha,medium,tropical
+gajapati,odisha,high,tropical
+ganjam,odisha,high,tropical
+jagatsinghapur,odisha,high,tropical
+jajapur,odisha,high,tropical
+jharsuguda,odisha,medium,tropical
+kalahandi,odisha,low,tropical
+kandhamal,odisha,high,tropical
+kendrapara,odisha,high,tropical
+kendujhar,odisha,high,tropical
+khordha,odisha,high,tropical
+koraput,odisha,high,tropical
+malkangiri,odisha,high,tropical
+mayurbhanj,odisha,high,tropical
+nabarangapur,odisha,high,tropical
+nayagarh,odisha,high,tropical
+nuapada,odisha,low,tropical
+puri,odisha,high,tropical
+rayagada,odisha,high,tropical
+sambalpur,odisha,medium,tropical
+subarnapur,odisha,medium,tropical
+sundargarh,odisha,medium,tropical
+balaghat,madhya pradesh,high,tropical
+barwani,madhya pradesh,low,arid
+betul,madhya pradesh,medium,tropical
+bhind,madhya pradesh,very_low,arid
+bhopal,madhya pradesh,medium,dry-tropical
+chhatarpur,madhya pradesh,low,semi-arid
+chhindwara,madhya pradesh,medium,tropical
+damoh,madhya pradesh,medium,dry-tropical
+datia,madhya pradesh,low,arid
+dewas,madhya pradesh,medium,dry-tropical
+dhar,madhya pradesh,low,semi-arid
+guna,madhya pradesh,medium,dry-tropical
+gwalior,madhya pradesh,low,arid
+hoshangabad,madhya pradesh,high,tropical
+indore,madhya pradesh,medium,dry-tropical
+jabalpur,madhya pradesh,medium,tropical
+jhabua,madhya pradesh,low,arid
+katni,madhya pradesh,medium,tropical
+khandwa,madhya pradesh,low,semi-arid
+khargone,madhya pradesh,low,semi-arid
+mandla,madhya pradesh,high,tropical
+mandsaur,madhya pradesh,low,arid
+morena,madhya pradesh,very_low,arid
+narsimhapur,madhya pradesh,medium,tropical
+neemuch,madhya pradesh,low,arid
+panna,madhya pradesh,medium,dry-tropical
+raisen,madhya pradesh,medium,dry-tropical
+rajgarh,madhya pradesh,low,semi-arid
+ratlam,madhya pradesh,low,semi-arid
+rewa,madhya pradesh,medium,dry-tropical
+sagar,madhya pradesh,medium,dry-tropical
+satna,madhya pradesh,medium,dry-tropical
+sehore,madhya pradesh,medium,dry-tropical
+seoni,madhya pradesh,medium,tropical
+shahdol,madhya pradesh,high,tropical
+shajapur,madhya pradesh,low,semi-arid
+sheopur,madhya pradesh,low,arid
+shivpuri,madhya pradesh,low,arid
+sidhi,madhya pradesh,medium,dry-tropical
+tikamgarh,madhya pradesh,low,semi-arid
+ujjain,madhya pradesh,low,semi-arid
+vidisha,madhya pradesh,medium,dry-tropical
+amreli,gujarat,low,arid
+anand,gujarat,medium,semi-arid
+banas kantha,gujarat,very_low,arid
+bharuch,gujarat,medium,humid
+bhavnagar,gujarat,low,semi-arid
+dahod,gujarat,low,semi-arid
+gandhinagar,gujarat,medium,semi-arid
+jamnagar,gujarat,low,arid
+junagadh,gujarat,medium,semi-arid
+kheda,gujarat,medium,semi-arid
+mahesana,gujarat,low,semi-arid
+narmada,gujarat,high,humid
+navsari,gujarat,high,humid
+panch mahals,gujarat,low,semi-arid
+patan,gujarat,very_low,arid
+porbandar,gujarat,low,semi-arid
+rajkot,gujarat,low,arid
+sabar kantha,gujarat,low,semi-arid
+surat,gujarat,high,humid
+surendranagar,gujarat,very_low,arid
+vadodara,gujarat,medium,semi-arid
+valsad,gujarat,high,humid
+araria,bihar,high,sub-humid
+aurangabad,bihar,low,semi-arid
+banka,bihar,medium,sub-humid
+begusarai,bihar,high,sub-humid
+bhagalpur,bihar,high,sub-humid
+bhojpur,bihar,medium,sub-humid
+buxar,bihar,medium,sub-humid
+darbhanga,bihar,high,sub-humid
+gaya,bihar,low,semi-arid
+gopalganj,bihar,medium,sub-humid
+jamui,bihar,low,semi-arid
+jehanabad,bihar,medium,sub-humid
+kaimur,bihar,low,semi-arid
+katihar,bihar,high,sub-humid
+khagaria,bihar,high,sub-humid
+kishanganj,bihar,high,sub-humid
+lakhisarai,bihar,medium,sub-humid
+madhepura,bihar,high,sub-humid
+madhubani,bihar,high,sub-humid
+munger,bihar,medium,sub-humid
+muzaffarpur,bihar,high,sub-humid
+nalanda,bihar,medium,sub-humid
+nawada,bihar,low,semi-arid
+pashchim champaran,bihar,high,sub-humid
+patna,bihar,high,sub-humid
+purba champaran,bihar,high,sub-humid
+purnia,bihar,high,sub-humid
+rohtas,bihar,medium,sub-humid
+saharsa,bihar,high,sub-humid
+samastipur,bihar,high,sub-humid
+saran,bihar,medium,sub-humid
+sheikhpura,bihar,medium,sub-humid
+sheohar,bihar,high,sub-humid
+sitamarhi,bihar,high,sub-humid
+siwan,bihar,medium,sub-humid
+supaul,bihar,high,sub-humid
+vaishali,bihar,high,sub-humid
+alipurduar,west bengal,high,humid
+bankura,west bengal,low,tropical
+birbhum,west bengal,medium,tropical
+cooch behar,west bengal,high,humid
+dakshin dinajpur,west bengal,medium,humid
+darjeeling,west bengal,high,mountainous
+hooghly,west bengal,high,humid
+howrah,west bengal,high,humid
+jalpaiguri,west bengal,high,humid
+jhargram,west bengal,medium,tropical
+kalimpong,west bengal,high,mountainous
+kolkata,west bengal,high,humid
+malda,west bengal,medium,humid
+murshidabad,west bengal,medium,humid
+nadia,west bengal,high,humid
+north 24 parganas,west bengal,high,humid
+paschim bardhaman,west bengal,medium,tropical
+paschim medinipur,west bengal,medium,tropical
+purba bardhaman,west bengal,medium,tropical
+purba medinipur,west bengal,high,humid
+purulia,west bengal,low,tropical
+south 24 parganas,west bengal,high,humid
+uttar dinajpur,west bengal,medium,humid
+bilaspur,chhattisgarh,medium,tropical
+dantewada,chhattisgarh,high,tropical
+dhamtari,chhattisgarh,medium,tropical
+durg,chhattisgarh,medium,tropical
+jashpur,chhattisgarh,high,tropical
+kanker,chhattisgarh,medium,tropical
+kawardha,chhattisgarh,low,semi-arid
+korba,chhattisgarh,medium,tropical
+koriya,chhattisgarh,medium,tropical
+mahasamund,chhattisgarh,medium,tropical
+raigarh,chhattisgarh,high,tropical
+raipur,chhattisgarh,medium,tropical
+rajnandgaon,chhattisgarh,medium,tropical
+almoda,uttarakhand,high,mountainous
+bageshwar,uttarakhand,high,mountainous
+chamoli,uttarakhand,high,mountainous
+champawat,uttarakhand,high,mountainous
+dehradun,uttarakhand,high,mountainous
+haridwar,uttarakhand,medium,sub-humid
+nainital,uttarakhand,high,mountainous
+pauri garhwal,uttarakhand,high,mountainous
+pithoragarh,uttarakhand,high,mountainous
+rudraprayag,uttarakhand,high,mountainous
+tehri garhwal,uttarakhand,high,mountainous
+udham singh nagar,uttarakhand,medium,sub-humid
+uttarkashi,uttarakhand,high,mountainous
+anantnag,jammu & kashmir,high,mountainous
+badgam,jammu & kashmir,high,mountainous
+bandipora,jammu & kashmir,high,mountainous
+baramulla,jammu & kashmir,high,mountainous
+doda,jammu & kashmir,high,mountainous
+ganderbal,jammu & kashmir,high,mountainous
+jammu,jammu & kashmir,medium,sub-humid
+kathua,jammu & kashmir,medium,sub-humid
+kishtwar,jammu & kashmir,high,mountainous
+kulgam,jammu & kashmir,high,mountainous
+kupwara,jammu & kashmir,high,mountainous
+poonch,jammu & kashmir,high,mountainous
+pulwama,jammu & kashmir,high,mountainous
+rajouri,jammu & kashmir,high,mountainous
+ramban,jammu & kashmir,high,mountainous
+reasi,jammu & kashmir,high,mountainous
+samba,jammu & kashmir,medium,sub-humid
+shopian,jammu & kashmir,high,mountainous
+srinagar,jammu & kashmir,high,mountainous
+udhampur,jammu & kashmir,high,mountainous
+leh,ladakh,very_low,cold-desert
+kargil,ladakh,very_low,cold-desert
+north goa,goa,high,humid
+south goa,goa,high,humid
+chandigarh,chandigarh,medium,sub-humid
+central delhi,delhi,low,semi-arid
+east delhi,delhi,low,semi-arid
+new delhi,delhi,low,semi-arid
+north delhi,delhi,low,semi-arid
+north east delhi,delhi,low,semi-arid
+north west delhi,delhi,low,semi-arid
+south delhi,delhi,low,semi-arid
+south west delhi,delhi,low,semi-arid
+west delhi,delhi,low,semi-arid
+bhiwani,haryana,very_low,arid
+faridabad,haryana,low,semi-arid
+fatehabad,haryana,low,arid
+gurgaon,haryana,low,semi-arid
+hisar,haryana,very_low,arid
+jhajjar,haryana,low,semi-arid
+jind,haryana,low,semi-arid
+kaithal,haryana,low,semi-arid
+karnal,haryana,medium,semi-arid
+kurukshetra,haryana,medium,semi-arid
+mahendragarh,haryana,very_low,arid
+mewat,haryana,low,semi-arid
+palwal,haryana,low,semi-arid
+panchkula,haryana,medium,semi-arid
+panipat,haryana,low,semi-arid
+rewari,haryana,low,semi-arid
+rohtak,haryana,low,semi-arid
+sirsa,haryana,very_low,arid
+sonipat,haryana,low,semi-arid
+yamunanagar,haryana,medium,sub-humid
+bilaspur,himachal pradesh,high,mountainous
+chamba,himachal pradesh,high,mountainous
+hamirpur,himachal pradesh,high,mountainous
+kangra,himachal pradesh,high,mountainous
+kinnaur,himachal pradesh,high,mountainous
+kullu,himachal pradesh,high,mountainous
+lahaul & spiti,himachal pradesh,very_low,cold-desert
+mandi,himachal pradesh,high,mountainous
+shimla,himachal pradesh,high,mountainous
+sirmaur,himachal pradesh,high,mountainous
+solan,himachal pradesh,high,mountainous
+una,himachal pradesh,medium,sub-humid
+bokaro,jharkhand,medium,tropical
+chatra,jharkhand,medium,tropical
+deoghar,jharkhand,medium,tropical
+dhanbad,jharkhand,medium,tropical
+dumka,jharkhand,medium,tropical
+east singhbhum,jharkhand,high,tropical
+garhwa,jharkhand,low,tropical
+giridih,jharkhand,medium,tropical
+aizawl,mizoram,high,humid
+champhai,mizoram,high,humid
+kolasib,mizoram,high,humid
+lawngtlai,mizoram,high,humid
+lunglei,mizoram,high,humid
+mamit,mizoram,high,humid
+saiha,mizoram,high,humid
+serchhip,mizoram,high,humid
+dimapur,nagaland,high,humid
+kiphire,nagaland,high,humid
+kohima,nagaland,high,humid
+longleng,nagaland,high,humid
+mokokchung,nagaland,high,humid
+mon,nagaland,high,humid
+peren,nagaland,high,humid
+phek,nagaland,high,humid
+tuensang,nagaland,high,humid
+wokha,nagaland,high,humid
+zunheboto,nagaland,high,humid
+bishnupur,manipur,high,humid
+chandel,manipur,high,humid
+churachandpur,manipur,high,humid
+imphal east,manipur,high,humid
+imphal west,manipur,high,humid
+senapati,manipur,high,humid
+tamenglong,manipur,high,humid
+thoubal,manipur,high,humid
+ukhrul,manipur,high,humid
+dhalai,tripura,high,humid
+north tripura,tripura,high,humid
+south tripura,tripura,high,humid
+west tripura,tripura,high,humid
+east garo hills,meghalaya,high,humid
+east khasi hills,meghalaya,high,humid
+jaintia hills,meghalaya,high,humid
+ri bhoi,meghalaya,high,humid
+south garo hills,meghalaya,high,humid
+west garo hills,meghalaya,high,humid
+west khasi hills,meghalaya,high,humid
+east kameng,arunachal pradesh,high,mountainous
+lohit,arunachal pradesh,high,mountainous
+lower subansiri,arunachal pradesh,high,mountainous
+papum pare,arunachal pradesh,high,mountainous
+tawang,arunachal pradesh,high,mountainous
+tirap,arunachal pradesh,high,mountainous
+upper siang,arunachal pradesh,high,mountainous
+upper subansiri,arunachal pradesh,high,mountainous
+west kameng,arunachal pradesh,high,mountainous
+west siang,arunachal pradesh,high,mountainous
+east sikkim,sikkim,high,mountainous
+north sikkim,sikkim,high,mountainous
+south sikkim,sikkim,high,mountainous
+west sikkim,sikkim,high,mountainous
+karaikal,puducherry,medium,humid
+mahe,puducherry,high,humid
+puducherry,puducherry,medium,humid
+yanam,puducherry,high,humid
+nicobar,andaman & nicobar,high,humid
+north & middle andaman,andaman & nicobar,high,humid
+south andaman,andaman & nicobar,high,humid
+kavaratti,lakshadweep,high,humid
+dadra & nagar haveli,dadra and nagar haveli,medium,humid
+daman,daman & diu,medium,humid
+diu,daman & diu,low,semi-arid
+agar malwa,madhya pradesh,low,semi-arid
+alirajpur,madhya pradesh,low,semi-arid
+ashoknagar,madhya pradesh,medium,dry-tropical
+burhanpur,madhya pradesh,low,semi-arid
+harda,madhya pradesh,medium,tropical
+sheopur,madhya pradesh,low,arid
+singrauli,madhya pradesh,medium,tropical
+shravasti,uttar pradesh,high,sub-humid
+siddharthnagar,uttar pradesh,high,sub-humid
+sitapur,uttar pradesh,medium,sub-humid
+sonbhadra,uttar pradesh,low,tropical
+sultanpur,uttar pradesh,medium,sub-humid
+unnao,uttar pradesh,medium,sub-humid
+baghpat,uttar pradesh,low,semi-arid
+ballia,uttar pradesh,high,sub-humid
+balrampur,uttar pradesh,high,sub-humid
+banda,uttar pradesh,very_low,arid
+barabanki,uttar pradesh,medium,sub-humid
+basti,uttar pradesh,high,sub-humid
+bijnor,uttar pradesh,medium,sub-humid
+budaun,uttar pradesh,low,semi-arid
+bulandshahr,uttar pradesh,low,semi-arid
+chandauli,uttar pradesh,high,sub-humid
+chitrakoot,uttar pradesh,very_low,arid
+deoria,uttar pradesh,high,sub-humid
+etah,uttar pradesh,low,semi-arid
+etawah,uttar pradesh,low,semi-arid
+faizabad,uttar pradesh,medium,sub-humid
+farrukhabad,uttar pradesh,medium,semi-arid
+fatehpur,uttar pradesh,medium,sub-humid
+firozabad,uttar pradesh,low,semi-arid
+gautam buddha nagar,uttar pradesh,low,semi-arid
+gonda,uttar pradesh,high,sub-humid
+gorakhpur,uttar pradesh,high,sub-humid
+hamirpur,uttar pradesh,very_low,arid
+hapur,uttar pradesh,low,semi-arid
