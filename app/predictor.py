@@ -67,7 +67,7 @@ def full_recommendation(n, p, k, ph, city):
     ]
     
     top_crops = filter_crops_by_region(top_crops, city)
-    top_crops = [c for c in top_crops if c["confidence"] >= 40]
+    top_crops = [c for c in top_crops if c["confidence"] >= 20]
 
     if not top_crops:
         raise ValueError("No suitable crops found with high enough confidence.")

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f0fdf4;
+  --color-brand-100: #dcfce7;
+  --color-brand-200: #bbf7d0;
+  --color-brand-300: #86efac;
+  --color-brand-400: #4ade80;
+  --color-brand-500: #22c55e;
+  --color-brand-600: #16a34a;
+  --color-brand-700: #15803d;
+  --color-brand-800: #166534;
+  --color-brand-900: #14532d;
+  
+  --color-accent-400: #facc15;
+  --color-accent-500: #eab308;
+
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-md border border-white/40 shadow-xl rounded-2xl;
+}
+
+.input-field {
+  @apply w-full rounded-xl border-gray-200 bg-white/50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-brand-500 focus:ring-brand-500 focus:outline-none focus:ring-2 transition-all duration-200 shadow-sm;
+}
+
+.btn-primary {
+  @apply bg-brand-500 hover:bg-brand-600 text-white font-medium py-3 px-6 rounded-xl shadow-lg shadow-brand-500/30 transition-all duration-300 active:scale-95;
+}
