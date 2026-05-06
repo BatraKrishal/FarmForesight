@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { PredictionRequest } from "@/lib/api";
-import { Leaf, Droplets, FlaskConical, MapPin, Loader2 } from "lucide-react";
+import { Leaf, Droplets, FlaskConical, MapPin, Loader2, CloudRain, Thermometer } from "lucide-react";
 
 interface SoilInputFormProps {
   onSubmit: (data: PredictionRequest) => void;
@@ -17,13 +17,17 @@ export function SoilInputForm({ onSubmit, isLoading }: SoilInputFormProps) {
     k: 43,
     ph: 6.5,
     city: "Pune",
+    use_custom_weather: false,
+    temperature: 25,
+    humidity: 60,
+    rainfall: 100,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "city" ? value : parseFloat(value) || 0,
+      [name]: type === "checkbox" ? checked : name === "city" ? value : parseFloat(value) || 0,
     }));
   };
 
@@ -113,6 +117,67 @@ export function SoilInputForm({ onSubmit, isLoading }: SoilInputFormProps) {
               required
             />
           </div>
+          
+          <div className="sm:col-span-2 flex items-center gap-3 bg-brand-50 p-4 rounded-xl border border-brand-100">
+            <input
+              type="checkbox"
+              id="use_custom_weather"
+              name="use_custom_weather"
+              checked={formData.use_custom_weather}
+              onChange={handleChange}
+              className="w-5 h-5 text-brand-600 rounded focus:ring-brand-500"
+            />
+            <label htmlFor="use_custom_weather" className="text-sm font-semibold text-brand-800">
+              Provide custom weather data (instead of real-time fetch)
+            </label>
+          </div>
+
+          {formData.use_custom_weather && (
+            <>
+              <div className="space-y-2">
+                <label className="flex items-center gap-2 text-sm font-semibold text-slate-700 whitespace-nowrap">
+                  <Thermometer size={16} className="text-orange-500 shrink-0" /> Temperature (°C)
+                </label>
+                <input
+                  type="number"
+                  step="0.1"
+                  name="temperature"
+                  value={formData.temperature}
+                  onChange={handleChange}
+                  className="input-field"
+                  required={formData.use_custom_weather}
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="flex items-center gap-2 text-sm font-semibold text-slate-700 whitespace-nowrap">
+                  <Droplets size={16} className="text-blue-500 shrink-0" /> Humidity (%)
+                </label>
+                <input
+                  type="number"
+                  step="0.1"
+                  name="humidity"
+                  value={formData.humidity}
+                  onChange={handleChange}
+                  className="input-field"
+                  required={formData.use_custom_weather}
+                />
+              </div>
+              <div className="space-y-2 sm:col-span-2">
+                <label className="flex items-center gap-2 text-sm font-semibold text-slate-700 whitespace-nowrap">
+                  <CloudRain size={16} className="text-blue-600 shrink-0" /> Rainfall (mm)
+                </label>
+                <input
+                  type="number"
+                  step="0.1"
+                  name="rainfall"
+                  value={formData.rainfall}
+                  onChange={handleChange}
+                  className="input-field"
+                  required={formData.use_custom_weather}
+                />
+              </div>
+            </>
+          )}
         </div>
 
         <button

@@ -34,11 +34,17 @@ def generate_reason(crop, rainfall, humidity, temp, n, p, k):
         f"Soil nutrients (N:{n}, P:{p}, K:{k}) support its growth."
     )
 
-def full_recommendation(n, p, k, ph, city):
-    temp, humidity, rainfall = get_weather_smart(city)
+def full_recommendation(n, p, k, ph, city, use_custom_weather=False, temperature=None, humidity=None, rainfall=None):
+    if use_custom_weather and temperature is not None and humidity is not None and rainfall is not None:
+        temp = temperature
+        # Ensure we don't accidentally shadow the local variable with None if passed incorrectly
+        humidity = humidity 
+        rainfall = rainfall
+    else:
+        temp, humidity, rainfall = get_weather_smart(city)
 
-    if temp is None or humidity is None or rainfall is None:
-        raise ValueError("Weather data could not be fetched for the specified city.")
+        if temp is None or humidity is None or rainfall is None:
+            raise ValueError("Weather data could not be fetched for the specified city.")
 
     input_df = pd.DataFrame([{
         "n": n,
