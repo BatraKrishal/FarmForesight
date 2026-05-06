@@ -9,24 +9,20 @@ interface RecommendationResultProps {
   data: PredictionResponse;
 }
 
-const CROP_IMAGES: Record<string, string> = {
-  rice: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800&auto=format&fit=crop",
-  maize: "https://images.unsplash.com/photo-1551754655-cd27e38d2076?q=80&w=800&auto=format&fit=crop",
-  coffee: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=800&auto=format&fit=crop",
-  cotton: "https://images.unsplash.com/photo-1590487988256-9ed24133863e?q=80&w=800&auto=format&fit=crop",
-  apple: "https://images.unsplash.com/photo-1560806887-1e4cd0b6faa6?q=80&w=800&auto=format&fit=crop",
-  banana: "https://images.unsplash.com/photo-1528825871115-3581a5387919?q=80&w=800&auto=format&fit=crop",
-  mango: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?q=80&w=800&auto=format&fit=crop",
-  orange: "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?q=80&w=800&auto=format&fit=crop",
-  grapes: "https://images.unsplash.com/photo-1596369018448-433a04efcff8?q=80&w=800&auto=format&fit=crop",
-  watermelon: "https://images.unsplash.com/photo-1587049352847-4d4b1263d893?q=80&w=800&auto=format&fit=crop",
-  papaya: "https://images.unsplash.com/photo-1617112848505-8919f2bdc173?q=80&w=800&auto=format&fit=crop",
-  coconut: "https://images.unsplash.com/photo-1532055047814-1e0e8e6047aa?q=80&w=800&auto=format&fit=crop",
+const jpgCrops = ["mothbeans"];
+
+const getCropImage = (cropName: string) => {
+  if (!cropName) return "/crops/default.jpg";
+  const formatted = cropName.toLowerCase().replace(/\s+/g, "");
+  
+  if (jpgCrops.includes(formatted)) {
+    return `/crops/${formatted}.jpg`;
+  }
+  
+  return `/crops/${formatted}.webp`;
 };
 
 export function RecommendationResult({ data }: RecommendationResultProps) {
-  const cropImage = CROP_IMAGES[data.recommended_crop.toLowerCase()] || 
-    `https://images.unsplash.com/photo-random?query=${data.recommended_crop}&w=800`;
 
   return (
     <motion.div
@@ -38,11 +34,10 @@ export function RecommendationResult({ data }: RecommendationResultProps) {
       <div className="glass-panel overflow-hidden">
         <div className="relative h-48 w-full bg-brand-100">
           <Image
-            src={cropImage}
+            src={getCropImage(data.recommended_crop)}
             alt={data.recommended_crop}
             fill
             className="object-cover"
-            unoptimized // Using unoptimized for external random images if needed
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
           <div className="absolute bottom-4 left-6 text-white">
