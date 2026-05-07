@@ -24,16 +24,109 @@ crop_water_needs = {
 }
 
 crop_guidelines = {
+    # ── High water-need crops ──────────────────────────────────────────────────
+    "rice": {
+        "stage": "Tillering/Heading",
+        "water_mm_per_week": "50–70 mm",
+        "notes": "Maintain 5–10 cm standing water; reduce near maturity"
+    },
+    "banana": {
+        "stage": "Vegetative/Flowering",
+        "water_mm_per_week": "35–50 mm",
+        "notes": "Requires consistent moisture; drip irrigation preferred"
+    },
+    "coconut": {
+        "stage": "Year-round",
+        "water_mm_per_week": "35–50 mm",
+        "notes": "Deep watering 2–3 times/week; mulch to retain moisture"
+    },
+    # ── Medium water-need crops ────────────────────────────────────────────────
+    "maize": {
+        "stage": "Vegetative/Tasseling",
+        "water_mm_per_week": "30–40 mm",
+        "notes": "Critical watering at tasseling and silking stages"
+    },
     "muskmelon": {
         "stage": "Vegetative/Fruiting",
-        "water_mm_per_week": "20–30 mm",
+        "water_mm_per_week": "25–40 mm",
         "notes": "Avoid overwatering during fruiting stage"
     },
-    "rice": {
-        "stage": "Standing water",
-        "water_mm_per_week": "50–70 mm",
-        "notes": "Maintain flooded conditions"
-    }
+    "watermelon": {
+        "stage": "Vegetative/Fruiting",
+        "water_mm_per_week": "25–40 mm",
+        "notes": "Reduce water 1–2 weeks before harvest for sweetness"
+    },
+    "orange": {
+        "stage": "Flowering/Fruit set",
+        "water_mm_per_week": "20–30 mm",
+        "notes": "Consistent moisture at fruit set; reduce during ripening"
+    },
+    "papaya": {
+        "stage": "Vegetative/Fruiting",
+        "water_mm_per_week": "25–35 mm",
+        "notes": "Avoid waterlogging; drip irrigation recommended"
+    },
+    "mango": {
+        "stage": "Fruit development",
+        "water_mm_per_week": "20–30 mm",
+        "notes": "Withhold water pre-flowering to induce blooming"
+    },
+    "grapes": {
+        "stage": "Berry development",
+        "water_mm_per_week": "20–30 mm",
+        "notes": "Drip irrigation preferred; reduce water near harvest"
+    },
+    # ── Low water-need crops ───────────────────────────────────────────────────
+    "chickpea": {
+        "stage": "Vegetative/Podding",
+        "water_mm_per_week": "10–15 mm",
+        "notes": "Critical irrigation at flowering and pod filling"
+    },
+    "kidneybeans": {
+        "stage": "Vegetative/Podding",
+        "water_mm_per_week": "15–25 mm",
+        "notes": "Avoid waterlogging; irrigate at flowering and pod fill"
+    },
+    "pigeonpeas": {
+        "stage": "Flowering/Podding",
+        "water_mm_per_week": "8–12 mm",
+        "notes": "Drought-tolerant; 1–2 irrigations at critical stages"
+    },
+    "mothbeans": {
+        "stage": "Vegetative",
+        "water_mm_per_week": "10–15 mm",
+        "notes": "Highly drought-tolerant; minimal irrigation needed"
+    },
+    "mungbean": {
+        "stage": "Vegetative/Podding",
+        "water_mm_per_week": "15–22 mm",
+        "notes": "Light irrigation at flowering; avoid excess moisture"
+    },
+    "blackgram": {
+        "stage": "Vegetative/Podding",
+        "water_mm_per_week": "15–22 mm",
+        "notes": "Sensitive to waterlogging; irrigate at flowering stage"
+    },
+    "lentil": {
+        "stage": "Vegetative/Podding",
+        "water_mm_per_week": "12–18 mm",
+        "notes": "One or two irrigations at flowering and pod fill"
+    },
+    "cotton": {
+        "stage": "Boll development/Square formation",
+        "water_mm_per_week": "35–50 mm",
+        "notes": "Critical watering at squaring and boll formation stages"
+    },
+    "jute": {
+        "stage": "Vegetative",
+        "water_mm_per_week": "15–20 mm",
+        "notes": "Requires warm, moist conditions; avoid standing water"
+    },
+    "coffee": {
+        "stage": "Flowering/Berry development",
+        "water_mm_per_week": "20–30 mm",
+        "notes": "Consistent moisture at berry development; avoid drought stress"
+    },
 }
 
 def recommend_irrigation(crop, rainfall_30d, humidity, city):
