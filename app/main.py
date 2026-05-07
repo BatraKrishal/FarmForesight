@@ -6,6 +6,7 @@ from pydantic import BaseModel
 from typing import Optional
 from dotenv import load_dotenv
 from google import genai
+from fastapi.staticfiles import StaticFiles
 
 from .predictor import full_recommendation
 from .analytics import DatasetAnalysisService
@@ -22,6 +23,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.mount("/crops", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "../frontend/public/crops")), name="crops")
 
 try:
     client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
