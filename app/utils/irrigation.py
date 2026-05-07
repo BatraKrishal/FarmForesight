@@ -106,8 +106,10 @@ def enrich_irrigation(irrigation, crop, humidity, rainfall_30d):
         
     # Calculate water saved
     recommended_method = irrigation.get("method", "Flood")
-    water_saved = calculate_water_savings(crop, rainfall_30d, recommended_method)
-    irrigation["water_saved_liters_per_hectare"] = water_saved
+    water_metrics = calculate_water_savings(crop, rainfall_30d, recommended_method)
+    irrigation["water_saved_liters_per_hectare"] = water_metrics["saved_liters_per_hectare"]
+    irrigation["water_baseline_liters_per_hectare"] = water_metrics["baseline_liters_per_hectare"]
+    irrigation["water_optimized_liters_per_hectare"] = water_metrics["optimized_liters_per_hectare"]
 
     return irrigation
 
@@ -133,7 +135,10 @@ def calculate_water_savings(crop, rainfall_30d, recommended_method):
     
     # 4. Calculate savings
     water_saved_mm = max(0, baseline_water_mm - optimized_water_mm)
-    liters_saved_per_hectare = water_saved_mm * 10000 
     
-    return round(liters_saved_per_hectare)
+    return {
+        "baseline_liters_per_hectare": round(baseline_water_mm * 10000),
+        "optimized_liters_per_hectare": round(optimized_water_mm * 10000),
+        "saved_liters_per_hectare": round(water_saved_mm * 10000)
+    }
 
