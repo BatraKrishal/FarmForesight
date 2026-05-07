@@ -86,8 +86,8 @@ def full_recommendation(n, p, k, ph, city, use_custom_weather=False, temperature
     sustainability = get_sustainability(crop)
 
     return {
-        "recommended_crop": crop,
-        "top_crops": top_crops,
+        "recommended_crop": crop.lower().replace(" ", ""),
+        "top_crops": [{"crop": c["crop"].lower().replace(" ", ""), "confidence": c["confidence"], "confidence_level": c["confidence_level"]} for c in top_crops],
         "temperature": float(temp),
         "humidity": float(humidity),
         "rainfall_last_30_days": float(rainfall),
