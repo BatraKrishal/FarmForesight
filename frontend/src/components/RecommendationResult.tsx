@@ -87,6 +87,21 @@ export function RecommendationResult({ data }: RecommendationResultProps) {
                 <p className="text-sm text-brand-800"><span className="font-medium">Priority:</span> {data.irrigation.priority}</p>
                 <p className="text-sm text-brand-800 col-span-2"><span className="font-medium">Water Req:</span> {data.irrigation.water_requirement}</p>
               </div>
+              
+              {data.irrigation.water_saved_liters_per_hectare && (
+                <div className="mt-3 bg-white p-3 rounded-lg border border-brand-200">
+                  <p className="text-sm font-semibold text-brand-600 flex items-center gap-2">
+                    💧 Estimated Water Saved
+                  </p>
+                  <p className="text-2xl font-bold text-brand-700 mt-1">
+                    {data.irrigation.water_saved_liters_per_hectare.toLocaleString()} <span className="text-sm font-medium text-brand-500">L/ha</span>
+                  </p>
+                  <p className="text-xs text-brand-500 mt-1">
+                    Compared to traditional flood irrigation.
+                  </p>
+                </div>
+              )}
+              
               {data.irrigation.warning && (
                 <div className="flex items-start gap-2 text-sm text-amber-700 bg-amber-50 p-3 rounded-lg border border-amber-200">
                   <AlertTriangle size={16} className="mt-0.5 shrink-0" />

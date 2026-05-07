@@ -8,10 +8,12 @@ from dotenv import load_dotenv
 from google import genai
 
 from .predictor import full_recommendation
+from .analytics import DatasetAnalysisService
 
 load_dotenv()
 
 app = FastAPI(title="Crop Recommendation API", description="ML-based agricultural recommendation system")
+analytics_service = DatasetAnalysisService()
 
 app.add_middleware(
     CORSMiddleware,
@@ -71,7 +73,76 @@ def chatbot(req: ChatbotRequest):
         raise HTTPException(status_code=500, detail="Gemini client not initialized.")
     
     try:
-        # 1. Parse user input into structured JSON
+        # 1. Intent Classification
+        intent_prompt = f"""
+You are an intent classifier for an agricultural chatbot.
+Classify the user's message into one of two categories:
+1. "recommendation": The user is giving soil/weather parameters and wants a crop recommendation.
+2. "analytics": The user is asking a question about the dataset itself (e.g., how many records, most frequent crop, average rainfall, trends, or filtering by a condition).
+
+If it's analytics, also determine the 'query_type' from this list:
+- "count": e.g., how many records, size of dataset
+- "frequent_crop": e.g., most common crop, which crop appears most
+- "average_rainfall": e.g., average rainfall
+- "feature_impact": e.g., which feature impacts prediction the most, which feature varies most
+- "filter_condition": e.g., show crops suitable for high humidity, crops for rainfall above 200 mm
+- "trends": e.g., what trends exist
+
+Return ONLY a valid JSON object. No markdown, no extra text.
+Format:
+{{
+  "intent": "recommendation" | "analytics",
+  "query_type": "...", // null if recommendation
+  "feature": "...", // feature name (e.g., 'humidity', 'rainfall') if query_type is filter_condition
+  "threshold": 0 // numeric threshold if query_type is filter_condition
+}}
+
+User message: "{req.message}"
+"""
+        intent_resp = client.models.generate_content(
+            model="models/gemini-2.5-flash",
+            contents=intent_prompt
+        )
+        
+        import re
+        json_match = re.search(r'\{.*\}', intent_resp.text, re.DOTALL)
+        if not json_match:
+            intent_data = {"intent": "recommendation"}
+        else:
+            intent_data = json.loads(json_match.group(0))
+
+        if intent_data.get("intent") == "analytics":
+            # Analytics flow
+            query_type = intent_data.get("query_type", "count")
+            params = {}
+            if query_type == "filter_condition":
+                params = {
+                    "feature": intent_data.get("feature", "rainfall"),
+                    "threshold": intent_data.get("threshold", 0)
+                }
+            
+            # Execute query
+            analytics_result = analytics_service.execute_query(query_type, params)
+            
+            # Generate conversational response
+            response_prompt = f"""
+You are an intelligent data analyst for an Indian farming dataset.
+The user asked a question about the dataset.
+
+User question: "{req.message}"
+Data Result: {json.dumps(analytics_result, indent=2)}
+
+Answer the user's question directly and conversationally using ONLY the provided data.
+Explain the insight simply. Do not mention JSON or code.
+"""
+            final_resp = client.models.generate_content(
+                model="models/gemini-2.5-flash",
+                contents=response_prompt
+            )
+            
+            return {"response": final_resp.text, "parsed_data": intent_data, "crop_data": analytics_result}
+
+        # 2. Recommendation Flow
         parsing_prompt = f"""
 You are an agricultural assistant. Extract the following soil and weather parameters from the user's message.
 Return ONLY a valid JSON object. No markdown, no extra text.
@@ -89,14 +160,12 @@ User message: "{req.message}"
             contents=parsing_prompt
         )
         
-        import re
         json_match = re.search(r'\{.*\}', parse_resp.text, re.DOTALL)
         if not json_match:
             raise ValueError("Failed to parse JSON from model response")
             
         parsed_data = json.loads(json_match.group(0))
         
-        # 2. Get recommendation
         pred_req = PredictionRequest(**parsed_data)
         crop_data = full_recommendation(
             n=pred_req.n, 
@@ -110,7 +179,6 @@ User message: "{req.message}"
             rainfall=pred_req.rainfall
         )
         
-        # 3. Generate conversational response
         response_prompt = f"""
 You are a practical and intelligent agriculture assistant helping Indian farmers.
 
@@ -125,6 +193,7 @@ RULES:
 - ONLY use information present in the JSON
 - Do not invent data
 - Sound like a real farming advisor
+- If water savings are calculated in the irrigation section, mention them and explain it's based on comparing our AI method against traditional flood irrigation.
 
 RESPONSE FORMAT:
 - Greeting

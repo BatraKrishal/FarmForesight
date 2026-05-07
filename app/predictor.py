@@ -81,7 +81,7 @@ def full_recommendation(n, p, k, ph, city, use_custom_weather=False, temperature
     crop = top_crops[0]["crop"]
 
     irrigation = recommend_irrigation(crop, rainfall, humidity, city)
-    irrigation = enrich_irrigation(irrigation, crop, humidity)
+    irrigation = enrich_irrigation(irrigation, crop, humidity, rainfall)
 
     sustainability = get_sustainability(crop)
 

@@ -94,7 +94,7 @@ def recommend_irrigation(crop, rainfall_30d, humidity, city):
 
     return base
 
-def enrich_irrigation(irrigation, crop, humidity):
+def enrich_irrigation(irrigation, crop, humidity, rainfall_30d):
     guide = crop_guidelines.get(crop, {})
 
     irrigation["crop_stage"] = guide.get("stage", "General growth")
@@ -103,5 +103,37 @@ def enrich_irrigation(irrigation, crop, humidity):
     # humidity-based risk
     if humidity > 80:
         irrigation["warning"] = "High humidity → risk of fungal diseases. Avoid over-irrigation."
+        
+    # Calculate water saved
+    recommended_method = irrigation.get("method", "Flood")
+    water_saved = calculate_water_savings(crop, rainfall_30d, recommended_method)
+    irrigation["water_saved_liters_per_hectare"] = water_saved
 
     return irrigation
+
+def calculate_water_savings(crop, rainfall_30d, recommended_method):
+    # 1. Get standard weekly need (defaulting to 40mm for medium crops)
+    guide = crop_guidelines.get(crop, {})
+    standard_need_str = guide.get("water_mm_per_week", "40")
+    # Parse the string (e.g., "50-70 mm" -> 60)
+    import re
+    numbers = [int(s) for s in re.findall(r'\d+', standard_need_str)]
+    avg_standard_need = sum(numbers) / len(numbers) if numbers else 40
+    
+    # 2. Baseline: Assuming 50% flood efficiency and ignoring rainfall
+    baseline_water_mm = avg_standard_need / 0.50
+    
+    # 3. Optimized: Subtract rainfall (convert 30d to weekly)
+    weekly_rainfall = rainfall_30d / 4
+    net_need = max(0, avg_standard_need - weekly_rainfall)
+    
+    # Determine efficiency based on your recommendation
+    efficiency = 0.90 if "drip" in recommended_method.lower() else 0.75 if "sprinkler" in recommended_method.lower() else 0.50
+    optimized_water_mm = net_need / efficiency
+    
+    # 4. Calculate savings
+    water_saved_mm = max(0, baseline_water_mm - optimized_water_mm)
+    liters_saved_per_hectare = water_saved_mm * 10000 
+    
+    return round(liters_saved_per_hectare)
+

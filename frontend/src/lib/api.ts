@@ -27,6 +27,7 @@ export interface IrrigationData {
   crop_stage: string;
   water_requirement: string;
   warning: string;
+  water_saved_liters_per_hectare?: number;
 }
 
 export interface PredictionResponse {
