@@ -134,26 +134,32 @@ def recommend_irrigation(crop, rainfall_30d, humidity, city):
     region = get_region_features(city)
 
     if need == "high":
-        if rainfall_30d < 50:
+        if rainfall_30d < 100:
             base = {
                 "method": "Flood or drip irrigation",
                 "frequency": "Frequent (every 2-3 days)",
                 "priority": "High"
             }
-        else:
+        elif rainfall_30d < 200:
             base = {
                 "method": "Maintain water levels",
                 "frequency": "Regular monitoring",
                 "priority": "Medium"
             }
+        else:
+            base = {
+                "method": "Minimal irrigation",
+                "frequency": "Occasional",
+                "priority": "Low"
+            }
     elif need == "medium":
-        if rainfall_30d < 30:
+        if rainfall_30d < 50:
             base = {
                 "method": "Sprinkler or drip irrigation",
                 "frequency": "Every 3-5 days",
                 "priority": "Medium"
             }
-        elif rainfall_30d < 80:
+        elif rainfall_30d < 100:
             base = {
                 "method": "Supplementary irrigation",
                 "frequency": "Weekly",
@@ -166,10 +172,16 @@ def recommend_irrigation(crop, rainfall_30d, humidity, city):
                 "priority": "Low"
             }
     else:
-        if rainfall_30d < 20:
+        if rainfall_30d < 30:
             base = {
                 "method": "Light drip irrigation",
                 "frequency": "Occasional",
+                "priority": "Medium"
+            }
+        elif rainfall_30d < 60:
+            base = {
+                "method": "Minimal irrigation",
+                "frequency": "Rare",
                 "priority": "Low"
             }
         else:
