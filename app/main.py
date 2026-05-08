@@ -73,7 +73,9 @@ def predict(req: PredictionRequest):
 @app.post("/chatbot")
 def chatbot(req: ChatbotRequest):
     if not client:
-        raise HTTPException(status_code=500, detail="Gemini client not initialized.")
+        import os
+        key_exists = bool(os.getenv("GEMINI_API_KEY"))
+        raise HTTPException(status_code=500, detail=f"Gemini client not initialized. GEMINI_API_KEY exists: {key_exists}")
     
     try:
         # 1. Intent Classification
@@ -103,7 +105,7 @@ Format:
 User message: "{req.message}"
 """
         intent_resp = client.models.generate_content(
-            model="models/gemini-2.5-flash",
+            model="models/gemini-2.5-flash-lite",
             contents=intent_prompt
         )
         
@@ -139,7 +141,7 @@ Answer the user's question directly and conversationally using ONLY the provided
 Explain the insight simply. Do not mention JSON or code.
 """
             final_resp = client.models.generate_content(
-                model="models/gemini-2.5-flash",
+                model="models/gemini-2.5-flash-lite",
                 contents=response_prompt
             )
             
@@ -159,7 +161,7 @@ User message: "{req.message}"
         """
         
         parse_resp = client.models.generate_content(
-            model="models/gemini-2.5-flash",
+            model="models/gemini-2.5-flash-lite",
             contents=parsing_prompt
         )
         
@@ -221,7 +223,11 @@ Keep the response conversational and easy to understand. Answer the user's quest
         return {"response": final_resp.text, "parsed_data": parsed_data, "crop_data": crop_data}
         
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         error_msg = str(e)
         if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
             raise HTTPException(status_code=429, detail="Gemini API rate limit exceeded. Please wait a minute and try again.")
+        elif "503" in error_msg or "UNAVAILABLE" in error_msg:
+            raise HTTPException(status_code=503, detail="The AI model is currently experiencing high demand. Please try again in a few moments.")
         raise HTTPException(status_code=500, detail=f"Chatbot error: {error_msg}")

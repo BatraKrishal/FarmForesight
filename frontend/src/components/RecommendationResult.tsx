@@ -9,14 +9,14 @@ interface RecommendationResultProps {
   data: PredictionResponse;
 }
 
-const jpgCrops = ["mothbeans"];
+const pngCrops = ["mothbeans"];
 
 const getCropImage = (cropName: string) => {
   if (!cropName) return "/crops/default.jpg";
   const formatted = cropName.toLowerCase().replace(/\s+/g, "");
   
-  if (jpgCrops.includes(formatted)) {
-    return `/crops/${formatted}.jpg`;
+  if (pngCrops.includes(formatted)) {
+    return `/crops/${formatted}.png`;
   }
   
   return `/crops/${formatted}.webp`;

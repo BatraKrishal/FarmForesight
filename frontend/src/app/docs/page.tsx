@@ -268,11 +268,11 @@ export default function DocsPage() {
                   </div>
                   <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-100">
                     <p className="text-xs text-emerald-600 font-medium">Test Acc</p>
-                    <p className="text-lg font-bold text-emerald-700">99.25%</p>
+                    <p className="text-lg font-bold text-emerald-700">99.49%</p>
                   </div>
                   <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-100">
                     <p className="text-xs text-emerald-600 font-medium">5-Fold CV</p>
-                    <p className="text-lg font-bold text-emerald-700">99.25%</p>
+                    <p className="text-lg font-bold text-emerald-700">99.39%</p>
                   </div>
                 </div>
               </div>
