@@ -141,7 +141,7 @@ Answer the user's question directly and conversationally using ONLY the provided
 Explain the insight simply. Do not mention JSON or code.
 """
             final_resp = client.models.generate_content(
-                model="models/gemini-2.5-flash-lite",
+                model="models/gemini-2.5-flash",
                 contents=response_prompt
             )
             
@@ -161,7 +161,7 @@ User message: "{req.message}"
         """
         
         parse_resp = client.models.generate_content(
-            model="models/gemini-2.5-flash-lite",
+            model="models/gemini-2.5-flash",
             contents=parsing_prompt
         )
         
