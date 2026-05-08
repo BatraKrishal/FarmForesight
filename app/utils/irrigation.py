@@ -4,6 +4,7 @@ crop_water_needs = {
     "rice": "high",
     "banana": "high",
     "coconut": "high",
+    "cotton": "high",
     "maize": "medium",
     "muskmelon": "medium",
     "watermelon": "medium",
@@ -11,16 +12,15 @@ crop_water_needs = {
     "papaya": "medium",
     "mango": "medium",
     "grapes": "medium",
+    "coffee": "medium",
+    "jute": "medium",
+    "kidneybeans": "medium",
+    "mungbean": "medium",
+    "blackgram": "medium",
     "chickpea": "low",
-    "kidneybeans": "low",
     "pigeonpeas": "low",
     "mothbeans": "low",
-    "mungbean": "low",
-    "blackgram": "low",
-    "lentil": "low",
-    "cotton": "low",
-    "jute": "low",
-    "coffee": "low"
+    "lentil": "low"
 }
 
 crop_guidelines = {
