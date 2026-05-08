@@ -21,7 +21,7 @@ export function Header() {
           </span>
           AI Assistant
         </Link>
-        <a href="#" className="hover:text-brand-600 transition-colors">How it works</a>
+        <Link href="/docs" className="hover:text-brand-600 transition-colors">Documentation</Link>
         <a href="#" className="hover:text-brand-600 transition-colors">Resources</a>
       </nav>
     </header>

@@ -9,14 +9,14 @@ interface RecommendationResultProps {
   data: PredictionResponse;
 }
 
-const jpgCrops = ["mothbeans"];
+const pngCrops = ["mothbeans"];
 
 const getCropImage = (cropName: string) => {
   if (!cropName) return "/crops/default.jpg";
   const formatted = cropName.toLowerCase().replace(/\s+/g, "");
   
-  if (jpgCrops.includes(formatted)) {
-    return `/crops/${formatted}.jpg`;
+  if (pngCrops.includes(formatted)) {
+    return `/crops/${formatted}.png`;
   }
   
   return `/crops/${formatted}.webp`;
@@ -82,6 +82,40 @@ export function RecommendationResult({ data }: RecommendationResultProps) {
                 <p className="text-sm text-brand-800"><span className="font-medium">Priority:</span> {data.irrigation.priority}</p>
                 <p className="text-sm text-brand-800 col-span-2"><span className="font-medium">Water Req:</span> {data.irrigation.water_requirement}</p>
               </div>
+              
+              {data.irrigation.water_saved_liters_per_hectare !== undefined && (
+                <div className="mt-4 bg-white p-4 rounded-xl border border-brand-200 shadow-sm">
+                  <h4 className="text-sm font-semibold text-brand-700 flex items-center gap-2 mb-3">
+                    💧 Irrigation Water Comparison
+                  </h4>
+                  
+                  <div className="grid grid-cols-2 gap-4 mb-3">
+                    <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                      <p className="text-xs text-slate-500 font-medium mb-1">Traditional Flood</p>
+                      <p className="text-lg font-bold text-slate-700">
+                        {data.irrigation.water_baseline_liters_per_hectare?.toLocaleString()} <span className="text-xs font-normal">L/ha</span>
+                      </p>
+                    </div>
+                    <div className="bg-brand-50 p-3 rounded-lg border border-brand-100">
+                      <p className="text-xs text-brand-600 font-medium mb-1">Optimized AI Plan</p>
+                      <p className="text-lg font-bold text-brand-700">
+                        {data.irrigation.water_optimized_liters_per_hectare?.toLocaleString()} <span className="text-xs font-normal">L/ha</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-100 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-emerald-600 font-medium mb-0.5">Estimated Water Saved</p>
+                      <p className="text-xs text-emerald-500">per week</p>
+                    </div>
+                    <p className="text-xl font-bold text-emerald-600">
+                      {data.irrigation.water_saved_liters_per_hectare.toLocaleString()} <span className="text-sm font-medium">L/ha</span>
+                    </p>
+                  </div>
+                </div>
+              )}
+              
               {data.irrigation.warning && (
                 <div className="flex items-start gap-2 text-sm text-amber-700 bg-amber-50 p-3 rounded-lg border border-amber-200">
                   <AlertTriangle size={16} className="mt-0.5 shrink-0" />
