@@ -139,6 +139,7 @@ Data Result: {json.dumps(analytics_result, indent=2)}
 
 Answer the user's question directly and conversationally using ONLY the provided data.
 Explain the insight simply. Do not mention JSON or code.
+IMPORTANT LANGUAGE RULE: Detect the language of the 'User question' above. If the user's question is written in Hindi, you MUST write your ENTIRE response in Hindi. If it is in English, respond in English.
 """
             final_resp = client.models.generate_content(
                 model="models/gemini-2.5-flash",
@@ -199,6 +200,9 @@ RULES:
 - Do not invent data
 - Sound like a real farming advisor
 - If water savings are calculated in the irrigation section, mention them and explain it's based on comparing our AI method against traditional flood irrigation.
+- IMPORTANT LANGUAGE RULE: The user's message is provided below. You MUST detect the language of the user's message. If the user's message is written in Hindi, you MUST write your ENTIRE response in Hindi. If it is in English, respond in English.
+
+User message: "{req.message}"
 
 RESPONSE FORMAT:
 - Greeting
